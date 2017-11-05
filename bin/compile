@@ -76,8 +76,6 @@ build() {
  
     meteor remove practicalmeteor:mocha
     meteor remove meteortesting:mocha
-    meteor remove digilord:faker
-    meteor npm uninstall faker --save
     
     status "NPM Prune"
     meteor npm prune --production
