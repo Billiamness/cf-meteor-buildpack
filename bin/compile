@@ -73,10 +73,17 @@ build() {
     status "Building meteor bundle"
     meteor --version
     pwd
-    meteor remove practicalmeteor:mocha
-    meteor remove meteortesting:mocha
-    meteor remove digilord:faker
-    meteor npm uninstall faker --save
+    
+    if [ -z "${METEOR_APP_TYPE}" ]
+    then
+      echo "Not removing unit-test packages and faker package"
+    else
+      meteor remove practicalmeteor:mocha
+      meteor remove meteortesting:mocha
+      meteor remove digilord:faker
+      meteor npm uninstall faker --save
+    fi
+    
     status "NPM Prune"
     meteor npm prune --production
     status "npm install"
