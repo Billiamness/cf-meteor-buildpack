@@ -71,27 +71,18 @@ build() {
   (
     cd $BUILD_DIR
     status "Building meteor bundle"
-    meteor --version
-    pwd
- 
+    
     meteor remove practicalmeteor:mocha
     meteor remove meteortesting:mocha
-#     meteor remove digilord:faker
-#     meteor npm uninstall faker --save
     
     status "NPM Prune"
     meteor npm prune --production
-    status "npm install"
-    meteor npm install
+#     status "npm install"
+#     meteor npm install
     
-    status "meteor building"
     meteor build --directory deploy --server http://localhost:3000
-    ls
     cd deploy/bundle/programs/server
-    pwd
-    free -m
-    df -k
-    status "Installing npm dependencies 2"
+    status "Installing npm dependencies"
     npm install 2>&1 | indent
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
