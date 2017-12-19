@@ -71,10 +71,7 @@ build() {
   (
     cd $BUILD_DIR
     status "Building meteor bundle"
-    
-    meteor remove practicalmeteor:mocha
-    meteor remove meteortesting:mocha
-    
+  
     status "NPM Prune"
     meteor npm prune --production
 #     status "npm install"
