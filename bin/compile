@@ -17,7 +17,7 @@ status() {
   echo "-----> $*"
 }
 
-node_version=$(curl --silent --get https://semver.io/node/resolve/8.8.x)
+node_version=$(curl --silent --get https://semver.io/node/resolve/8.9.3)
 
 install_node() {
   if [ -f "$BUILD_DIR/.vendor/node/bin/node" ] ; then
@@ -50,7 +50,7 @@ install_meteor() {
   # curl https://install.meteor.com | sh
   status "Downloading Meteor install script"
   METEOR_INSTALL_SCRIPT=install_meteor.sh
-  curl https://install.meteor.com?release=1.6 > $METEOR_INSTALL_SCRIPT 
+  curl https://install.meteor.com?release=1.6.0.1 > $METEOR_INSTALL_SCRIPT 
 
   status "Installing Meteor connected to $MONGO_URL"
   sed -e '/^#!\/bin\/sh/ s/$/ -x/' \
