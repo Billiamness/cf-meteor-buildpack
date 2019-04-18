@@ -77,8 +77,8 @@ build() {
 #     status "npm install"
 #     meteor npm install
 
-    status "meteor build --directory deploy --server http://localhost:3000"
-    meteor build --directory deploy --server http://localhost:3000
+    status "meteor build -v --directory deploy --server http://localhost:3000"
+    meteor build -v --directory deploy --server http://localhost:3000
     
     status "cd deploy/bundle/programs/server"
     cd deploy/bundle/programs/server
