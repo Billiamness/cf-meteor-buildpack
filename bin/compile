@@ -62,7 +62,6 @@ install_meteor() {
   status "Execute ./install-meteor-verbose.sh"
   ./install-meteor-verbose.sh
   status "Done"
-  sudo cp "/home/vcap/.meteor/packages/meteor-tool/1.8.1/mt-os.linux.x86_64/scripts/admin/launch-meteor" /usr/bin/meteor
 
   status "Updating PATH with Meteor"
   PATH=$HOME/.meteor:$PATH
@@ -77,9 +76,13 @@ build() {
     meteor npm prune --production
 #     status "npm install"
 #     meteor npm install
-    
+
+    status "meteor build --directory deploy --server http://localhost:3000"
     meteor build --directory deploy --server http://localhost:3000
+    
+    status "cd deploy/bundle/programs/server"
     cd deploy/bundle/programs/server
+    
     status "Installing npm dependencies"
     npm install 2>&1 | indent
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
