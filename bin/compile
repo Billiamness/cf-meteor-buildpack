@@ -64,7 +64,7 @@ install_meteor() {
   status "Done"
 
   status "Updating PATH with Meteor"
-  sudo PATH=$HOME/.meteor:$PATH
+  PATH=$HOME/.meteor:$PATH
 }
 
 build() {
