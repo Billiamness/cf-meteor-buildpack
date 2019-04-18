@@ -71,7 +71,6 @@ build() {
   (
     cd $BUILD_DIR
     status "Building meteor bundle"
-    ls
   
     status "NPM Prune"
     meteor npm prune --production
@@ -87,7 +86,10 @@ build() {
     status "Installing npm dependencies"
     npm install 2>&1 | indent
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
-    ls
+    status "ls bin"
+    ls bin
+    status "/home/vcap/app/deploy/bundle/main.js"
+    cat /home/vcap/app/deploy/bundle/main.js
   )
 }
 
