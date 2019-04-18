@@ -86,8 +86,6 @@ build() {
     status "Installing npm dependencies"
     npm install 2>&1 | indent
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
-    status "ls"
-    ls
   )
 }
 
