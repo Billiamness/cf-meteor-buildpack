@@ -74,11 +74,11 @@ build() {
   
     status "NPM Prune"
     meteor npm prune --production
-    status "npm install"
-    meteor npm install
+    #status "npm install"
+    #meteor npm install
 
     status "meteor build -v --directory deploy --server http://localhost:3000"
-    meteor build -v --directory deploy --server http://localhost:3000
+    meteor build --directory deploy
     
     status "cd deploy/bundle/programs/server"
     cd deploy/bundle/programs/server
